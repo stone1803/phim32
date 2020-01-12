@@ -14,13 +14,17 @@ import * as serviceWorker from './serviceWorker';
 
 // setup redux
 import { Provider } from "react-redux";
-import{createStore,applyMiddleware} from "redux";
+import{createStore,applyMiddleware,compose} from "redux";
 import rootRecuder from "./Redux/rootReducer"
 import thunk from "redux-thunk"
 // tao ra store tong cua ung dung
 // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-const store = createStore(rootRecuder,
-  applyMiddleware(thunk))
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  rootRecuder,
+  composeEnhancers(applyMiddleware(thunk))
+);
 ReactDOM.render(
   <Provider store={store}>
     <App />

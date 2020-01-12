@@ -1,16 +1,17 @@
 let MovieState ={
-    movies:[],
-    detailmMvies:[]
+    moviesTops:[],
+    moviesAll:[],
+    detailmMovies:[]
 }
 const listMovieReducer =(state=MovieState,action)=>{
         switch (action.type) {
-            case "SHOW_ALL_MOIVE":{
-                state.courses= action.payload;
+            case "SHOW_ONE_TEN":{
+                state.moviesTops= action.payload;
                 console.log(action)
                 return {...state}
             }
-            case "DETAIL_MOVIE":{
-                state.detailCourse= action.payload;
+            case "SHOW_ALL":{
+                state.moviesAll= action.payload;
                 console.log(action)
                 return {...state}
             }

@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import Moivetheater from "../../components/Movietheater";
 import Moviesearch from "../../components/Movietheater/MovieSreach/Moviesearch"
-export default class Home extends Component {
+import { actGetListMovieTopAPI, actGetListMovieAPI } from "../../Action/movie";
+import {connect} from "react-redux"
+ class Home extends Component {
+  componentDidMount() {
+    this.props.dispatch(actGetListMovieTopAPI());
+    this.props.dispatch(actGetListMovieAPI());
+  }
   render() {
     return (
       <div>
@@ -71,3 +77,5 @@ export default class Home extends Component {
     );
   }
 }
+
+export default connect()(Home)
