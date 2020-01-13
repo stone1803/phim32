@@ -9,7 +9,7 @@ class Detail extends Component {
       this.props.dispatch(actGetDetailMovieAPI(id));
 
       }
-      
+ 
   render() {
 
     return (

@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import Skeleton from 'react-loading-skeleton';
+import { Link } from "react-router-dom";
+
 
 export default class MovieItemAll extends Component {
     render() {
@@ -10,13 +13,14 @@ export default class MovieItemAll extends Component {
               <h3 className="title has-text-white	">
                 {this.props.item.tenPhim}
               </h3>
-              <span className="post">{this.props.item.ngayKhoiChieu}</span>
+              <span className="post">
+              {new Date(this.props.item.ngayKhoiChieu).toLocaleDateString()  || <Skeleton />}
+              </span>
               <ul className="icon">
                 <li>
-                  <button className="btn btn-danger mr-2">Chi Tiết</button>
-                </li>
-                <li>
-                <button className="btn btn-warning">Đặt Phim</button>
+                <Link to={`/detail/${this.props.item.maPhim}`  || <Skeleton />}>
+                  <button  className="btn btn-warning mr-2">Mua Vé</button>
+                </Link>
                 </li>
               </ul>
             </div>

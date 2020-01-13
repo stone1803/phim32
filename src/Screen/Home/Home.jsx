@@ -12,6 +12,7 @@ import FeedBack from "../../Layouts/FeedBack";
     this.props.dispatch(actGetListMovieTopAPI());
     this.props.dispatch(actGetListMovieAPI());
   }
+ 
   render() {
     return (
       <div>

@@ -5,7 +5,7 @@ export const actGetListMovieTopAPI = () => {
     return dispatch => {
       Axios({
         method: "GET",
-        url:"http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP01&soTrang=2&soPhanTuTrenTrang=8"
+        url:"http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP10&soTrang=2&soPhanTuTrenTrang=8"
       })
         .then(res => {
           dispatch(createAction("SHOW_ONE_TEN", res.data.items));
@@ -19,7 +19,7 @@ export const actGetListMovieTopAPI = () => {
     return dispatch => {
       Axios({
         method: "GET",
-        url:"http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01"
+        url:"http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP10"
       })
         .then(res => {
           dispatch(createAction("SHOW_ALL", res.data));
