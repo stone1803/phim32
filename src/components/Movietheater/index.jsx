@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import MovieItemShow from "./MovieList/MovieItemShow";
-import MovieItemComingSoon from "./MovieList/MovieItemComingSoon"
+import MovieItemShowTop from "./MovieList/MovieItemShowTop";
+import MovieItemAll from "./MovieList/MovieItemAll"
 import { createAction } from "../../Action";
 import {connect} from "react-redux"
 class Moivetheater extends Component {
@@ -9,14 +9,14 @@ class Moivetheater extends Component {
     let { listTopMovies } = this.props;
     console.log(listTopMovies);
     return listTopMovies.map((item, index) => {
-      return <MovieItemShow item={item} key={index} />;
+      return <MovieItemShowTop item={item} key={index} />;
     });
   };
   renderListALL = () => {
     let {listAllMovies}= this.props
     console.log(listAllMovies);
     return listAllMovies.map((item, index) => {
-      return <MovieItemComingSoon item={item} key={index} />;
+      return <MovieItemAll item={item} key={index} />;
     });
   };
 
@@ -78,7 +78,7 @@ class Moivetheater extends Component {
                   role="tabpanel"
                   aria-labelledby="nav-profile-tab"
                 >
-                  <div className="container mt-4">
+                  <div className="container">
                   <div className="row">{this.renderListALL()}</div>
 
                        

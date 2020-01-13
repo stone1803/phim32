@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-
+import {Link} from "react-router-dom"
 export default class Header extends Component {
     render() {
         return (
             <>
-            <div>
+            <div className="">
             <nav
-      class="navbar is-dark is-fixed-top
+      class="navbar is-dark
     "
       role="navigation"
       aria-label="main navigation"
@@ -34,13 +34,13 @@ export default class Header extends Component {
 
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item">
+          <Link to="/" class="navbar-item">
             TRANG CHỦ
-          </a>
+          </Link>
 
-          <a class="navbar-item">
+          <Link to="/detail:id"class="navbar-item">
             LỊCH CHIẾU
-          </a>
+          </Link>
           <a class="navbar-item">
             TIN TỨC
           </a>

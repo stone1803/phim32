@@ -15,6 +15,12 @@ const listMovieReducer =(state=MovieState,action)=>{
                 console.log(action)
                 return {...state}
             }
+            case "SHOW_DETAIL":{
+                state.detailmMovies= action.payload;
+                console.log(action)
+                return {...state}
+            }
+       
        
          default: return state;
         break;

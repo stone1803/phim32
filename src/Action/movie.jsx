@@ -1,4 +1,3 @@
-
 import Axios from "axios";
 import {createAction} from "./index"
 
@@ -6,7 +5,7 @@ export const actGetListMovieTopAPI = () => {
     return dispatch => {
       Axios({
         method: "GET",
-        url:"http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP01&soTrang=1&soPhanTuTrenTrang=8"
+        url:"http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP01&soTrang=2&soPhanTuTrenTrang=8"
       })
         .then(res => {
           dispatch(createAction("SHOW_ONE_TEN", res.data.items));
@@ -24,6 +23,23 @@ export const actGetListMovieTopAPI = () => {
       })
         .then(res => {
           dispatch(createAction("SHOW_ALL", res.data));
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+    
+  };
+  export const actGetDetailMovieAPI = (id) => {
+    return dispatch => {
+      Axios({
+        method: "GET",
+        url:`http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`
+      })
+        .then(res => {
+          console.log(res.data);
+
+          dispatch(createAction("SHOW_DETAIL", res.data));
         })
         .catch(err => {
           console.log(err);

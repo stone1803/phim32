@@ -1,8 +1,12 @@
 import React, { Component } from "react";
+
 import Moivetheater from "../../components/Movietheater";
-import Moviesearch from "../../components/Movietheater/MovieSreach/Moviesearch"
-import { actGetListMovieTopAPI, actGetListMovieAPI } from "../../Action/movie";
+import Moviesearch from "../../components/Movietheater/MovieSreach/Moviesearch";
+import SaleOff from "../../Layouts/SaleOff";
+import News from "../../Layouts/News"
+import { actGetListMovieTopAPI, actGetListMovieAPI,actGetDetailMovieAPI } from "../../Action/movie";
 import {connect} from "react-redux"
+import FeedBack from "../../Layouts/FeedBack";
  class Home extends Component {
   componentDidMount() {
     this.props.dispatch(actGetListMovieTopAPI());
@@ -70,10 +74,10 @@ import {connect} from "react-redux"
       </div>
       <Moviesearch/>
       <Moivetheater/>
-
+      <SaleOff/>
+      <News/>
+      <FeedBack/>
       </div>
-
-
     );
   }
 }

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-export default class MovieItemComingSoon extends Component {
+export default class MovieItemAll extends Component {
     render() {
         return (
           <div className="col-md-3 col-sm-6">
-          <div className="box14 mt-3">
-            <img src={this.props.item.hinhAnh} alt="HINH aNH" />
+          <div className="box14 mt-2">
+            <img src={this.props.item.hinhAnh} alt="HINH aNH" style={Img} />
             <div className="box-content">
               <h3 className="title has-text-white	">
                 {this.props.item.tenPhim}
@@ -25,3 +25,8 @@ export default class MovieItemComingSoon extends Component {
         )
     }
 }
+const Img = {
+  with:"100%",
+  height :"350px"
+  
+};
