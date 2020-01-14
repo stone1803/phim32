@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Skeleton from "react-loading-skeleton";
+import Bang from "./bang";
 
 class InfoMovieDetail extends Component {
+ 
+
   render() {
     let { detail } = this.props;
 
     return (
       <div className="row">
         <div className="column">
-          <img src={detail.hinhAnh || <Skeleton duration={1} height={100}  />
-
-} />
+          <img src={detail.hinhAnh || <Skeleton duration={1} height={100} />} />
         </div>
 
         <div className="column is-four-fifths">
@@ -23,7 +24,10 @@ class InfoMovieDetail extends Component {
             Nội Dung : {detail.moTa || <Skeleton count={10} />}
           </p>
           <p className="has-text-white mt-4">
-            Ngày Chiếu :{new Date(detail.ngayKhoiChieu).toLocaleDateString()|| <Skeleton duration={1}/>}
+            Ngày Chiếu :
+            {new Date(detail.ngayKhoiChieu).toLocaleDateString() || (
+              <Skeleton duration={1} />
+            )}
           </p>
           <p className="has-text-white mt-4">
             Đánh Giá : {detail.danhGia || <Skeleton duration={1} />}
@@ -37,7 +41,7 @@ class InfoMovieDetail extends Component {
                 <div className="select">
                   <select>
                     <option>Rạp Chiếu </option>
-                    <option></option>
+                    <option> </option>
                   </select>
                 </div>
               </div>
@@ -45,7 +49,7 @@ class InfoMovieDetail extends Component {
                 <div className="select">
                   <select>
                     <option>NGÀY XEM</option>
-                    <option>With options</option>
+            <option></option>
                   </select>
                 </div>
               </div>
@@ -64,13 +68,15 @@ class InfoMovieDetail extends Component {
               </div>
             </div>
           </div>
+              <Bang/>
         </div>
       </div>
     );
   }
 }
 const mapStateToProps = state => ({
-  detail: state.listMovieReducer.detailmMovies
+  detail: state.listMovieReducer.detailmMovies,
+  detailBook:state.listMovieReducer.detailBook
 });
 
 export default connect(mapStateToProps, null)(InfoMovieDetail);

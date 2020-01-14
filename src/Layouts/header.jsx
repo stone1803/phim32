@@ -14,7 +14,7 @@ export default class Header extends Component {
       <div class="navbar-brand">
         <a class="navbar-item" href="">
           <img
-            src="logo192.png"
+            src="https://i.ibb.co/Vmrpv2h/logo192.png"
           
           />
         </a>

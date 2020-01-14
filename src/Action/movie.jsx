@@ -37,9 +37,24 @@ export const actGetListMovieTopAPI = () => {
         url:`http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`
       })
         .then(res => {
-          console.log(res.data);
+          
 
           dispatch(createAction("SHOW_DETAIL", res.data));
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+  };
+  export const actGetBookAPI = (id) => {
+    return dispatch => {
+      Axios({
+        method: "GET",
+        url:`http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${id}`
+      })
+        .then(res => {
+
+          dispatch(createAction("SHOW_INFO_BOOK", res.data));
         })
         .catch(err => {
           console.log(err);

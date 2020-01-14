@@ -1,27 +1,27 @@
 import React, { Component } from "react";
-import { actGetDetailMovieAPI } from "../../Action/movie";
-import {connect} from "react-redux"
+import { actGetDetailMovieAPI, actGetBookAPI } from "../../Action/movie";
+import { connect } from "react-redux";
 import InfoMovieDetail from "../../components/MovieItems/InfoMovieDetail";
 class Detail extends Component {
-    componentDidMount(){
-      const id = this.props.match.params.id;
-      console.log(id)
-      this.props.dispatch(actGetDetailMovieAPI(id));
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    this.props.dispatch(actGetDetailMovieAPI(id));
+    this.props.dispatch(actGetBookAPI(id));
 
-      }
- 
+    
+    window.scrollTo(0, 0);
+  }
+
   render() {
-
     return (
       <div className="mt-4">
         <div className="mt-4">
           <div className="container mt-4 has-text-white">
             <div className="columns">
-              <InfoMovieDetail/>
+              <InfoMovieDetail />
             </div>
           </div>
           {/* chi tiet  */}
-  
         </div>
         {/* cam nhan  */}
         <div className="container contact-form notification mt-4">
@@ -199,9 +199,5 @@ class Detail extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-    detail: state.listMovieReducer.detailmMovies
-  });
 
-
-  export default connect(mapStateToProps,null)(Detail)
+export default connect(null, null)(Detail);
