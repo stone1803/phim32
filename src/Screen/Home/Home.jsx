@@ -8,7 +8,7 @@ import { actGetListMovieTopAPI, actGetListMovieAPI,actGetDetailMovieAPI } from "
 import {connect} from "react-redux"
 import FeedBack from "../../Layouts/FeedBack";
  class Home extends Component {
-  componentDidMount() {
+ async componentDidMount() {
     this.props.dispatch(actGetListMovieTopAPI());
     this.props.dispatch(actGetListMovieAPI());
   }

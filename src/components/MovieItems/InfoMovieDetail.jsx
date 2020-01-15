@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Skeleton from "react-loading-skeleton";
-import Bang from "./bang";
 
 class InfoMovieDetail extends Component {
- 
-
   render() {
     let { detail } = this.props;
-
     return (
       <div className="row">
         <div className="column">
@@ -49,7 +45,7 @@ class InfoMovieDetail extends Component {
                 <div className="select">
                   <select>
                     <option>NGÀY XEM</option>
-            <option></option>
+                    <option></option>
                   </select>
                 </div>
               </div>
@@ -68,7 +64,6 @@ class InfoMovieDetail extends Component {
               </div>
             </div>
           </div>
-              <Bang/>
         </div>
       </div>
     );
@@ -76,7 +71,7 @@ class InfoMovieDetail extends Component {
 }
 const mapStateToProps = state => ({
   detail: state.listMovieReducer.detailmMovies,
-  detailBook:state.listMovieReducer.detailBook
+  detailBook: state.listMovieReducer.detailBook
 });
 
 export default connect(mapStateToProps, null)(InfoMovieDetail);

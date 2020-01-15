@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import MovieItemShowTop from "./MovieList/MovieItemShowTop";
-import MovieItemAll from "./MovieList/MovieItemAll"
+import MovieItemAll from "./MovieList/MovieItemAll";
 import { createAction } from "../../Action";
-import {connect} from "react-redux"
+import { connect } from "react-redux";
 class Moivetheater extends Component {
-
   renderListTop = () => {
     let { listTopMovies } = this.props;
     console.log(listTopMovies);
@@ -13,7 +12,7 @@ class Moivetheater extends Component {
     });
   };
   renderListALL = () => {
-    let {listAllMovies}= this.props
+    let { listAllMovies } = this.props;
     console.log(listAllMovies);
     return listAllMovies.map((item, index) => {
       return <MovieItemAll item={item} key={index} />;
@@ -79,9 +78,7 @@ class Moivetheater extends Component {
                   aria-labelledby="nav-profile-tab"
                 >
                   <div className="container">
-                  <div className="row">{this.renderListALL()}</div>
-
-                       
+                    <div className="row">{this.renderListALL()}</div>
                   </div>
                 </div>
               </div>
@@ -96,6 +93,5 @@ class Moivetheater extends Component {
 let mapStateToProps = state => ({
   listTopMovies: state.listMovieReducer.moviesTops,
   listAllMovies: state.listMovieReducer.moviesAll
-
 });
 export default connect(mapStateToProps, null)(Moivetheater);

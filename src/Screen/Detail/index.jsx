@@ -3,12 +3,14 @@ import { actGetDetailMovieAPI, actGetBookAPI } from "../../Action/movie";
 import { connect } from "react-redux";
 import InfoMovieDetail from "../../components/MovieItems/InfoMovieDetail";
 class Detail extends Component {
+  state = {
+    loadding: true
+  };
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.dispatch(actGetDetailMovieAPI(id));
     this.props.dispatch(actGetBookAPI(id));
 
-    
     window.scrollTo(0, 0);
   }
 
@@ -195,6 +197,7 @@ class Detail extends Component {
             </div>
           </div>
         </div>
+        
       </div>
     );
   }
