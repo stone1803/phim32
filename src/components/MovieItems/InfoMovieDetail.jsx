@@ -28,7 +28,13 @@ class InfoMovieDetail extends Component {
           <p className="has-text-white mt-4">
             Đánh Giá : {detail.danhGia || <Skeleton duration={1} />}
           </p>
-          <button className="btn btn-danger mt-4">XEM TRAILER</button>
+          <button
+            className="btn btn-danger mt-4"
+            data-toggle="modal"
+            data-target="#trailer"
+          >
+            XEM TRAILER
+          </button>
         </div>
         <div className="container mt-4 align-center " style={{ padding: 0 }}>
           <div className="notification">
@@ -65,13 +71,57 @@ class InfoMovieDetail extends Component {
             </div>
           </div>
         </div>
+        {/* TRALER PHIM */}
+        <div
+          className="modal fade"
+          id="trailer"
+          tabIndex={-1}
+          role="dialog"
+          aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title text-danger" id="trailer">
+                  Trailer : {detail.tenPhim}
+                </h5>
+                <button
+                  type="button"
+                  className="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe
+                    class="embed-responsive-item"
+                    src={detail.trailer}
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Đóng Lại
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
 const mapStateToProps = state => ({
   detail: state.listMovieReducer.detailmMovies,
-  detailBook: state.listMovieReducer.detailBook
 });
 
 export default connect(mapStateToProps, null)(InfoMovieDetail);

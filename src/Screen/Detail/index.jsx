@@ -26,64 +26,7 @@ class Detail extends Component {
           {/* chi tiet  */}
         </div>
         {/* cam nhan  */}
-        <div className="container contact-form notification mt-4">
-          <div className="contact-image mt-4">
-            <img src="./img/feedback.png" alt="rocket_contact" />
-          </div>
-          <form method="post">
-            <h3>Cảm nhận bạn khi xem phim !</h3>
-            <div className="row">
-              <div className="col-md-6">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="txtName"
-                    className="form-control"
-                    placeholder="Tên của bạn"
-                    defaultValue
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="txtEmail"
-                    className="form-control"
-                    placeholder="Địa chỉ Email của bạn"
-                    defaultValue
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="txtPhone"
-                    className="form-control"
-                    placeholder="Điện thoại của bạn"
-                    defaultValue
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="submit"
-                    name="btnSubmit"
-                    className="btnContact"
-                    defaultValue="Gửi đánh giá"
-                  />
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="form-group">
-                  <textarea
-                    name="txtMsg"
-                    className="form-control"
-                    placeholder="Nội dung cảm nhận"
-                    style={{ width: "100%", height: 150 }}
-                    defaultValue={""}
-                  />
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
+ 
         {/* cam nhan  */}
         <div
           className="cam_nhan container contact-form  mt-4"
@@ -197,7 +140,6 @@ class Detail extends Component {
             </div>
           </div>
         </div>
-        
       </div>
     );
   }
