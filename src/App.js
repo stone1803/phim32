@@ -3,7 +3,7 @@ import React from "react";
 import Header from "./Layouts/header";
 import Home from "./Screen/Home/Home";
 import Detail from "./Screen/Detail";
-
+import User from "./User/"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Footer from "./Layouts/Footer";
 import Test from "../src/test/index"
@@ -15,6 +15,8 @@ function App() {
       <Header />
       <Switch>
       <Route path="/detail/:id"  component={Detail} />
+      <Route path="/infoUser"  component={User} />
+
       <Route path="/"  component={Home} />
       </Switch>
       <Footer/>
