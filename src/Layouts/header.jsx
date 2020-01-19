@@ -68,9 +68,9 @@ export default class Header extends Component {
               <div class="navbar-end">
                 <div class="navbar-item">
                   <div class="buttons">
-                    <a class="button is-danger " hidden={this.state.onOFF}>
+                    <Link to="/Reg" class="button is-danger " hidden={this.state.onOFF}>
                       ĐĂNG KÝ
-                    </a>
+                    </Link>
                     <a
                       hidden={this.state.onOFF}
                       class="button is-warning"
@@ -180,7 +180,7 @@ export default class Header extends Component {
                             .catch(err => console.log(err));
                         }}
                       >
-                        Sign In
+                        GO
                       </button>
                     </div>
                     <div className="form-group forget-password">

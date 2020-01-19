@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Footer from "./Layouts/Footer";
 import Test from "../src/test/index"
 import Login from "./components/Login/Login";
+import Reg from "./components/Login/Reg";
 // setup redux
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
       <Switch>
       <Route path="/detail/:id"  component={Detail} />
       <Route path="/infoUser"  component={User} />
+      <Route path="/Reg"  component={Reg} />
+
 
       <Route path="/"  component={Home} />
       </Switch>
