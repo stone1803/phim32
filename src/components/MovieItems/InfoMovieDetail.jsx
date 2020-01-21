@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Skeleton from "react-loading-skeleton";
-import { ClipLoader } from "react-spinners";
-
+import { PacmanLoader } from "react-spinners";
+import { css } from "@emotion/core";
+const override = css`
+  display: block;
+  margin: 50px;
+  border-color: red;
+`;
 class InfoMovieDetail extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -16,10 +22,10 @@ class InfoMovieDetail extends Component {
 
     if (detail.length === 0) {
       return (
-        <div className="ClimbingBoxLoader">
-          <ClipLoader
-          style={{ margin:50 }}
-            size={150}
+        <div className="FadeLoader">
+          <PacmanLoader
+            css={override}
+            size={40}
             //size={"150px"} this also works
             color={"#123abc"}
             loading={this.state.loading}
@@ -34,20 +40,13 @@ class InfoMovieDetail extends Component {
           </div>
 
           <div className="column is-four-fifths">
-            <h1 className="has-text-white mt-4 display-4">
-              {detail.tenPhim }
-            </h1>
+            <h1 className="has-text-white mt-4 display-4">{detail.tenPhim}</h1>
 
+            <p className="has-text-white mt-4">Nội Dung : {detail.moTa}</p>
             <p className="has-text-white mt-4">
-              Nội Dung : {detail.moTa }
+              Ngày Chiếu :{new Date(detail.ngayKhoiChieu).toLocaleDateString()}
             </p>
-            <p className="has-text-white mt-4">
-              Ngày Chiếu :
-              {new Date(detail.ngayKhoiChieu).toLocaleDateString()}
-            </p>
-            <p className="has-text-white mt-4">
-              Đánh Giá : {detail.danhGia }
-            </p>
+            <p className="has-text-white mt-4">Đánh Giá : {detail.danhGia}</p>
             <button
               className="btn btn-danger mt-4"
               data-toggle="modal"
@@ -140,12 +139,9 @@ class InfoMovieDetail extends Component {
       );
     }
   }
-  
 }
 const mapStateToProps = state => ({
   detail: state.listMovieReducer.detailmMovies
 });
-
-
 
 export default connect(mapStateToProps, null)(InfoMovieDetail);

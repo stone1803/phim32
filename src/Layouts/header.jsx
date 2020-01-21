@@ -132,7 +132,7 @@ export default class Header extends Component {
                     </div>
                     <div className="form-group">
                       <input
-                        type="text"
+                        type="password"
                         className="form-control"
                         name="matKhau"
                         placeholder="Password"
