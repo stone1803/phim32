@@ -5,16 +5,10 @@ import { Link } from "react-router-dom";
 class Search extends Component {
   handleButtonClick() {
     let moive = this.state.tenPhim;
-    let { fillterCinema } = this.props;
     this.props.dispatch(actGetCinemaFILLTERAPI(moive));
-    this.setState({
-      fillterCinema
-    });
-    this.render();
   }
   renderfillterCinema = () => {
     let { fillterCinema } = this.props;
-
     return fillterCinema.map((item, index) => {
       return (
         <tr key={index}>
@@ -32,11 +26,19 @@ class Search extends Component {
       );
     });
   };
+  renderIDMoive = () => {
+    let { fillterCinema } = this.props;
+    return fillterCinema.map(item => {
+      return item.maPhim;
+      
+    });
+    
+  };
+
   constructor(props) {
     super(props);
     this.state = {
-      tenPhim: null,
-      fillterCinema: []
+      tenPhim: null
     };
   }
   _onChange = e => {
@@ -49,7 +51,6 @@ class Search extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="container text-center">
         <button
@@ -60,7 +61,6 @@ class Search extends Component {
           {" "}
           👉 TÌM PHIM NHANH 👈
         </button>
-
         {/* Modal */}
         <div
           className="modal fade"
@@ -111,9 +111,9 @@ class Search extends Component {
                 >
                   Đóng
                 </button>
-                <Link to={`/detail/${1449}`}>
+                <Link to={`/detail/${this.renderIDMoive()}`}>
                   <button type="button" className="btn btn-danger"
-                  data-dismiss="modal">
+                  >
                     ĐẶT VÉ PHIM
                   </button>
                 </Link>

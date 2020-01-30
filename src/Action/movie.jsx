@@ -61,21 +61,7 @@ export const actGetListMovieTopAPI = () => {
         });
     };
   };
-export const actGetCinemaInfoAPI = ()=>{
-  return dispatch =>{
-    Axios({
-      method:"GET",
-      url :"http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap"
-    }).then(res=>{
-      console.log(res.data)
-      dispatch(createAction("SHOW_INFO_CINEMA",res.data));
 
-    }).catch(err=>{
-      console.log(err)
-    })
-   
-  }
-}
 export const actGetCinemaFILLTERAPI = (movie)=>{
   return dispatch =>{
     Axios({

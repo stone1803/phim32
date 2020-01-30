@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { actGetCinemaInfoAPI } from "../Action/movie";
+import { actGetCinemaInfoAPI } from "../Action/cinema";
 import Slider from "react-slick";
 import "../../node_modules/slick-carousel/slick/slick.css";
 import "../../node_modules/slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 class CinemaSystem extends Component {
   componentDidMount() {
     this.props.dispatch(actGetCinemaInfoAPI());
@@ -34,7 +35,10 @@ class CinemaSystem extends Component {
           <h4 className="text-light" key={index}>
             {item.tenHeThongRap}
           </h4>
+          <Link to={`/CinemaCluster/${item.maHeThongRap}` }>
           <img src={item.logo} style={{width:"100px",height:"100px"}}/>
+
+          </Link>
         </div>
       );
     });

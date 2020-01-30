@@ -57,12 +57,13 @@ export default class Header extends Component {
                 <Link to="/" class="navbar-item">
                   TRANG CHỦ
                 </Link>
+                <Link to="/CinemaCluster" class="navbar-item">CỤM RẠP</Link>
 
                 <Link to="/detail:id" class="navbar-item">
                   LỊCH CHIẾU
                 </Link>
+
                 <Link class="navbar-item">TIN TỨC</Link>
-                <Link class="navbar-item">CỤM RẠP</Link>
               </div>
 
               <div class="navbar-end">

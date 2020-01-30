@@ -1,10 +1,12 @@
+
 let MovieState = {
   moviesTops: [],
   moviesAll: [],
   detailmMovies: [],
   cinemaSystem: [],
   cinemaSystems: [],
-  fillterCinema:[]
+  fillterCinema:[],
+  detailCinema:[]
 };
 const listMovieReducer = (state = MovieState, action) => {
   switch (action.type) {
@@ -32,6 +34,10 @@ const listMovieReducer = (state = MovieState, action) => {
     case "FILLTER_INFO_CINEMA": {
       state.fillterCinema = action.payload;
       return { ...state };
+    }
+    case "SHOW_DETAIL_CINEMA":{
+      state.detailCinema = action.payload;
+      return {...state}
     }
     default:
       return state;

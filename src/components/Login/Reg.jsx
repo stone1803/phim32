@@ -21,10 +21,9 @@ export default class Reg extends Component {
     console.log(values);
   };
   render() {
-    if(localStorage.getItem("Users")){
+    if (localStorage.getItem("Users")) {
       return <Redirect to="/infoUser" />;
-    }
-    else{
+    } else {
       return (
         <section className="testimonial py-5 text-light" id="testimonial">
           <div className="container">
@@ -38,8 +37,8 @@ export default class Reg extends Component {
                     />
                     <h2 className="py-3">Chào mừng bạn dến phim32.com</h2>
                     <p>
-                      Đăng ký thành viên để được hưởng các chương trình ưu đãi lớn
-                      dành cho thành viên
+                      Đăng ký thành viên để được hưởng các chương trình ưu đãi
+                      lớn dành cho thành viên
                     </p>
                     <h2 className="py-3">OR</h2>
                   </div>
@@ -56,8 +55,7 @@ export default class Reg extends Component {
                       hoTen: "",
                       soDT: "",
                       maNhom: "GP01",
-                      maLoaiNguoiDung: "KhachHang",
-  
+                      maLoaiNguoiDung: "KhachHang"
                     }}
                     validationSchema={SignupSchema}
                     onSubmit={values => {
@@ -67,16 +65,18 @@ export default class Reg extends Component {
                         .dangKy(values)
                         .then(res => {
                           console.log(res.data);
-                          localStorage.setItem("User", JSON.stringify(res.data));
+                          localStorage.setItem(
+                            "User",
+                            JSON.stringify(res.data)
+                          );
                           Swal.fire({
-                              position: "center",
-                              icon: "success",
-                              title: "Đăng ký thành công",
-                              showConfirmButton: false,
-                              timer: 1500
-                            });
-                            history.push('/Notification');
-
+                            position: "center",
+                            icon: "success",
+                            title: "Đăng ký thành công",
+                            showConfirmButton: false,
+                            timer: 1500
+                          });
+                          history.push("/Notification");
                         })
                         .catch(err => {
                           console.log(err);
@@ -101,7 +101,9 @@ export default class Reg extends Component {
                           </ErrorMessage>
                         </div>
                         <div className="form-group">
-                          <label htmlFor="exampleInputPassword1">Mật Khẩu</label>
+                          <label htmlFor="exampleInputPassword1">
+                            Mật Khẩu
+                          </label>
                           <Field
                             type="password"
                             className="form-control"
@@ -164,7 +166,7 @@ export default class Reg extends Component {
                             )}
                           </ErrorMessage>{" "}
                         </div>
-  
+
                         <button type="submit" className="btn btn-danger">
                           Đăng Ký
                         </button>
@@ -178,6 +180,5 @@ export default class Reg extends Component {
         </section>
       );
     }
-    
   }
 }
