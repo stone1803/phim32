@@ -5,7 +5,6 @@ import { PacmanLoader } from "react-spinners";
 import { css } from "@emotion/core";
 import { createAction } from "../../Action";
 import { actGetInfoFimlBook } from "../../Action/book";
-import BookItem from "../Book/BookItem";
 const override = css`
   display: block;
   margin: 50px;
@@ -23,9 +22,8 @@ class InfoMovieDetail extends Component {
     let { infoBook } = this.props;
     return infoBook["heThongRapChieu"].map((item, index) => {
       return item["cumRapChieu"].map((data, index) => {
-        return (
-            <BookItem cumRapChieu={data} key={index} />
-        );
+        console.log(data);
+        return <option>{data.tenCumRap}</option>;
       });
     });
   };
@@ -84,10 +82,32 @@ class InfoMovieDetail extends Component {
           <div className="container mt-4 align-center " style={{ padding: 0 }}>
             <div className="notification">
               <div className="row container">
-              {this.renderRapChieu()}
+                <div className="col-md-4">
+                  <div className="select">
+                    <select>
+                      <option>RẠP CHIẾU PHIM</option>
+                      {this.renderRapChieu()}
+                    </select>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="select">
+                    <select>
+                      <option>LỊCH CHIẾU PHIM</option>
+                      {this.renderlichChieuPhim()}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="col-md-4">
+                  <div className="control">
+                    <button className="button is-danger">MUA VÉ NGAY</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          {/* TRALER PHIM */}
           <div
             className="modal fade"
             id="trailer"
@@ -112,9 +132,9 @@ class InfoMovieDetail extends Component {
                   </button>
                 </div>
                 <div className="modal-body">
-                  <div claclassNames="embed-responsive embed-responsive-16by9">
+                  <div class="embed-responsive embed-responsive-16by9">
                     <iframe
-                      className="embed-responsive-item"
+                      class="embed-responsive-item"
                       src={detail.trailer}
                       allowfullscreen
                     ></iframe>

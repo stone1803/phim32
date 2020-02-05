@@ -29,19 +29,19 @@ export default class Header extends Component {
       <>
         <div className="">
           <nav
-            class="navbar is-dark
+            className="navbar is-dark
     "
             role="navigation"
             aria-label="main navigation"
           >
-            <div class="navbar-brand">
-              <a class="navbar-item" href="">
+            <div className="navbar-brand">
+              <a className="navbar-item" href="">
                 <img src="https://i.ibb.co/Vmrpv2h/logo192.png" />
               </a>
 
               <a
                 role="button"
-                class="navbar-burger burger"
+                className="navbar-burger burger"
                 aria-label="menu"
                 aria-expanded="false"
                 data-target="navbarBasicExample"
@@ -52,29 +52,29 @@ export default class Header extends Component {
               </a>
             </div>
 
-            <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-start">
-                <Link to="/" class="navbar-item">
+            <div id="navbarBasicExample" className="navbar-menu">
+              <div className="navbar-start">
+                <Link to="/" className="navbar-item">
                   TRANG CHỦ
                 </Link>
-                <Link to="/CinemaCluster" class="navbar-item">CỤM RẠP</Link>
+                <Link to="/CinemaCluster" className="navbar-item">CỤM RẠP</Link>
 
-                <Link to="/detail:id" class="navbar-item">
+                <Link to="/detail:id" className="navbar-item">
                   LỊCH CHIẾU
                 </Link>
 
-                <Link class="navbar-item">TIN TỨC</Link>
+                <Link className="navbar-item">TIN TỨC</Link>
               </div>
 
-              <div class="navbar-end">
-                <div class="navbar-item">
-                  <div class="buttons">
+              <div className="navbar-end">
+                <div className="navbar-item">
+                  <div className="buttons">
                     <Link to="/Reg" class="button is-danger " hidden={this.state.onOFF}>
                       ĐĂNG KÝ
                     </Link>
                     <a
                       hidden={this.state.onOFF}
-                      class="button is-warning"
+                      className="button is-warning"
                       data-toggle="modal"
                       data-target={this.state.target}
                     >
@@ -161,7 +161,6 @@ export default class Header extends Component {
                               // } else {
                               //   alert("Username does not exist");
                               // }
-                              console.log(res.status);
                               if (res.data.taiKhoan !== this.state.taiKhoan) {
                                 alert("PPPPPPPPPPPPPPP");
                               }

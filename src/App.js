@@ -17,21 +17,20 @@ import Oder from "./Layouts/Oder";
 // setup redux
 function App() {
   return (
-    // <BrowserRouter>
-    //   <Header />
-    //   <Switch>
-    //   <Route path="/detail/:id"  component={Detail} />
-    //   <Route path="/infoUser"  component={User} />
-    //   <Route path="/Reg"  component={Reg} />
-    //   <Route path="/Notification"  component={Notification} />
-    //   <Route path="/CinemaCluster/:id"  component={CinemaCluster} />
+    <BrowserRouter>
+      <Header />
+      <Switch>
+      <Route path="/detail/:id"  component={Detail} />
+      <Route path="/infoUser"  component={User} />
+      <Route path="/Reg"  component={Reg} />
+      <Route path="/Notification"  component={Notification} />
+      <Route path="/CinemaCluster/:id"  component={CinemaCluster} />
 
-    //   <Route path="" component={Home} />
+      <Route path="" component={Home} />
 
-    //   </Switch>
-    //   <Footer/>
-    // </BrowserRouter>
-    <Oder/>
+      </Switch>
+      <Footer/>
+    </BrowserRouter>
 
   );
 }
