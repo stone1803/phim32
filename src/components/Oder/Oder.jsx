@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { connect, useSelector } from "react-redux";
 import Axios from "axios";
 import { createAction } from "../../Action";
-import Ghe from "./ghe";
+import Ghe from "./Ghe";
+import RemoveGhe from "./removeGhe";
 
 class Oder extends Component {
   constructor(props) {
@@ -25,22 +26,66 @@ class Oder extends Component {
       });
     }
   }
-  clickBook = data => {};
-  phuc = () => {
-    let { oder } = this.state;
-    console.log(oder.danhSachGhe);
-    return oder["danhSachGhe"].map((data, index) => {
-      // if (data.loaiGhe === "Vip") {
-      //   return <Ghe data={data} />;
-      // } else {
-      //   return <Ghe data={data} />;
-      // }
-      return <Ghe data={data}/>
+  handleGhe = data => {
+    console.log(data);
+    const objGhe = {
+      maGhe: data.maGhe,
+      tenGhe: data.tenGhe,
+      maRap: data.maRap,
+      stt: data.stt,
+      giave: data.giaVe,
+      daDat: data.daDat,
+      taiKhoanNguoiDat: data.taiKhoanNguoiDat
+    };
+
+    let mangGhe = [...this.state.mangGhe];
+
+    let index = mangGhe.findIndex(item => {
+      return item.maGhe === objGhe.maGhe;
     });
+
+    if (index !== -1) {
+      // Tim thay (da ton tai)
+      // Cap nhat so luong
+      mangGhe[index].soLuong += 1;
+    } else {
+      //Them SP vào giỏ hàng
+      mangGhe = [...this.state.mangGhe, objGhe];
+    }
+
+    this.setState({
+      mangGhe
+    });
+  };
+  Ghe = () => {
+    let { oder } = this.state;
+    return oder["danhSachGhe"].map((data, index) => {
+      return <Ghe data={data} clickGhe={this.handleGhe} />;
+    });
+  };
+  showGhe = () => {
+    let { mangGhe } = this.state;
+    console.log(mangGhe);
+    return mangGhe.map(data => {
+      return <RemoveGhe data={data} delete={this.deleteGhe} />;
+    });
+  };
+  deleteGhe = data => {
+    let index = this.state.mangGhe.findIndex(item => item.maGhe === data.maGhe);
+    let mangGhe = [...this.state.mangGhe];
+
+    if (index !== -1) {
+      mangGhe.splice(index, 1);
+
+      this.setState({
+        mangGhe
+      });
+    }
   };
 
   render() {
     let { oder, mangGhe } = this.state;
+    console.log(this.state);
     if (oder) {
       return (
         <div className="container mt-4">
@@ -57,16 +102,17 @@ class Oder extends Component {
                   <p> Tên Phim : {oder.thongTinPhim["tenPhim"]}</p>
                   <p> Ngày chiếu : {oder.thongTinPhim["ngayChieu"]}</p>
                   <p> Giờ chiếu : {oder.thongTinPhim["gioChieu"]}</p>
-                  <p>Ghé Bạn Chọn :{mangGhe.soLuong}</p>
+                  <p>Ghé Bạn Chọn :{this.showGhe()}</p>
+                  <button className="btn btn-success">THANH TOÁN</button>
                 </div>
                 <div className="card-footer">
-                  <button className="">Thanh Toán </button>
+                  <span className="">Lưu ý : Màu đỏ ghé vip, màu xanh ghé thường, hủy ghé chọn vào ghé đã chọn để hủy </span>
                 </div>
               </div>
             </div>
             <div className="col-8 mb-4">
               <h4>Danh sách ghế bạn có thể chọn</h4>
-              <div>{this.phuc()}</div>
+              <div>{this.Ghe()}</div>
             </div>
           </div>
         </div>
