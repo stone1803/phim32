@@ -20,9 +20,10 @@ export default class BookDetail extends Component {
               <td>{lichChieu.ngayChieuGioChieu}</td>
               <td>{lichChieu.giaVe}</td>
               <td>
-                <button className="btn btn-info">
-                  <Link to="/">GO</Link>
-                </button>
+        
+                <Link to={`/Oder/${lichChieu.maLichChieu}`}>
+                  <button className="btn btn-info">GO</button>
+                </Link>
               </td>
             </tr>
           </tbody>

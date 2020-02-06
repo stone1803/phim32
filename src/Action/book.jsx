@@ -11,3 +11,14 @@ export const actGetInfoFimlBook = id => {
     });
   };
 };
+export const actGetBookOder = id => {
+  return dispatch => {
+    Axios({
+      method: "GET",
+      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${id}`
+    }).then(res => {
+      console.log(res.data);
+      dispatch(createAction("GET_BOOK_ODER"));
+    });
+  };
+};

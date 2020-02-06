@@ -4,7 +4,7 @@ import Skeleton from "react-loading-skeleton";
 import { PacmanLoader } from "react-spinners";
 import { css } from "@emotion/core";
 import { createAction } from "../../Action";
-import { actGetInfoFimlBook } from "../../Action/book";
+import { actGetInfoFimlBook, actGetBookOder } from "../../Action/book";
 import BookItem from "../Book/BookItem";
 const override = css`
   display: block;
@@ -23,9 +23,7 @@ class InfoMovieDetail extends Component {
     let { infoBook } = this.props;
     return infoBook["heThongRapChieu"].map((item, index) => {
       return item["cumRapChieu"].map((data, index) => {
-        return (
-            <BookItem cumRapChieu={data} key={index} />
-        );
+        return <BookItem cumRapChieu={data} key={index} />;
       });
     });
   };
@@ -83,9 +81,7 @@ class InfoMovieDetail extends Component {
           </div>
           <div className="container mt-4 align-center " style={{ padding: 0 }}>
             <div className="notification">
-              <div className="row container">
-              {this.renderRapChieu()}
-              </div>
+              <div className="row container">{this.renderRapChieu()}</div>
             </div>
           </div>
           <div
