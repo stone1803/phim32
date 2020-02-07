@@ -16,7 +16,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/detail/:id" component={Detail} />
-        <Route path="/infoUser" component={User} />
+        <Route path="/infoUser/:id" component={User} />
         <Route path="/Reg" component={Reg} />
         <Route path="/Oder/:id" component={Oder} />
 

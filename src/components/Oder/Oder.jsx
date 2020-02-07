@@ -49,7 +49,7 @@ class Oder extends Component {
       // Cap nhat so luong
       mangGhe[index].soLuong += 1;
     } else {
-      //Them SP vào giỏ hàng
+      //Them  vào 
       mangGhe = [...this.state.mangGhe, objGhe];
     }
 

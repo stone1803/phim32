@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import Swal from "sweetalert2";
+import Gravatar from "react-gravatar";
+
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -57,7 +59,9 @@ export default class Header extends Component {
                 <Link to="/" className="navbar-item">
                   TRANG CHỦ
                 </Link>
-                <Link to="/CinemaCluster" className="navbar-item">CỤM RẠP</Link>
+                <Link to="/CinemaCluster" className="navbar-item">
+                  CỤM RẠP
+                </Link>
 
                 <Link to="/detail:id" className="navbar-item">
                   LỊCH CHIẾU
@@ -69,25 +73,45 @@ export default class Header extends Component {
               <div className="navbar-end">
                 <div className="navbar-item">
                   <div className="buttons">
-                    <Link to="/Reg" class="button is-danger " hidden={this.state.onOFF}>
+                    <Link
+                      to="/Reg"
+                      class="button is-danger "
+                      hidden={this.state.onOFF}
+                    >
                       ĐĂNG KÝ
                     </Link>
+
                     <a
                       hidden={this.state.onOFF}
                       className="button is-warning"
                       data-toggle="modal"
                       data-target={this.state.target}
                     >
-                      {this.state.loginTaiKhoan === null
+                      {this.state.taiKhoan === null
                         ? "ĐĂNG NHẬP"
-                        : " Xin Chào User " + this.state.loginTaiKhoan}
+                        : "Đăng Nhập" + this.state.taiKhoan}
                     </a>
                     <div>
                       {this.state.loginTaiKhoan === null ? (
                         <Link to="/infoUser/"></Link>
                       ) : (
-                        <Link to={`/infoUser/${this.state.loginTaiKhoan}`} className="text-light">
-                          👉 TÀI KHOẢN {this.state.loginTaiKhoan}
+                        <Link
+                          to={`/infoUser/${this.state.taiKhoan}`}
+                          className="text-light"
+                        >
+                          <div>
+                            {/* <Gravatar
+                              email=""
+                              style={{
+                                width: "68px",
+                                height: "68px",
+                                borderRadius:"50%",
+                                marginRight:"20px"
+                              
+                              }}
+                            /> */}
+                            👳 {this.state.loginTaiKhoan}
+                          </div>
                         </Link>
                       )}
                     </div>
@@ -184,7 +208,14 @@ export default class Header extends Component {
                       </button>
                     </div>
                     <div className="form-group forget-password">
-                      <a href="#">Forget Password</a>
+                      <Link
+                        to="/Reg"
+                        type="button"
+                        className="close"
+                        data-dismiss="modal"
+                      >
+                        Nếu chưa có tài khoản vui lòng đăng ký
+                      </Link>
                     </div>
                   </form>
                 </div>

@@ -5,7 +5,7 @@ export default class BookDetail extends Component {
     let { lichChieu } = this.props;
     return (
       <div>
-        <table className="table">
+        <table className="table table-hover">
           <thead>
             <tr>
               <th scope="col">Tên Rạp</th>
