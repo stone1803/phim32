@@ -4,6 +4,7 @@ import Axios from "axios";
 import { createAction } from "../../Action";
 import Ghe from "./Ghe";
 import RemoveGhe from "./removeGhe";
+import Swal from "sweetalert2";
 
 class Oder extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class Oder extends Component {
       // Cap nhat so luong
       mangGhe[index].soLuong += 1;
     } else {
-      //Them  vào 
+      //Them  vào
       mangGhe = [...this.state.mangGhe, objGhe];
     }
 
@@ -82,7 +83,26 @@ class Oder extends Component {
       });
     }
   };
-
+  cashOut = () => {
+    let user = JSON.parse(localStorage.getItem("User"));
+    let { oder } = this.state;
+    let tenPhim = oder.thongTinPhim["tenPhim"];
+    console.log(user);
+    if (user && user !== "null" && user !== "undefined") {
+      Swal.fire(
+        "Đặt Ghé Thành Công !",
+        "Vui lòng kiểm tra Email or vào TK để thanh toán ",
+        "Chúc bạn xem phim vui vẻ"
+      );
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Vui lòng đăng nhập để thanh toán !",
+        footer: '<a href="/Reg">Chưa có tài khoản vui lòng đăng ký tại đây</a>'
+      });
+    }
+  };
   render() {
     let { oder, mangGhe } = this.state;
     console.log(this.state);
@@ -103,10 +123,15 @@ class Oder extends Component {
                   <p> Ngày chiếu : {oder.thongTinPhim["ngayChieu"]}</p>
                   <p> Giờ chiếu : {oder.thongTinPhim["gioChieu"]}</p>
                   <p>Ghé Bạn Chọn :{this.showGhe()}</p>
-                  <button className="btn btn-success">THANH TOÁN</button>
+                  <button className="btn btn-success" onClick={this.cashOut}>
+                    THANH TOÁN
+                  </button>
                 </div>
                 <div className="card-footer">
-                  <span className="">Lưu ý : Màu đỏ ghé vip, màu xanh ghé thường, hủy ghé chọn vào ghé đã chọn để hủy </span>
+                  <span className="">
+                    Lưu ý : Màu đỏ ghé vip, màu xanh ghé thường, hủy ghé chọn
+                    vào ghé đã chọn để hủy{" "}
+                  </span>
                 </div>
               </div>
             </div>

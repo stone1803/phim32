@@ -22,7 +22,7 @@ export default class Reg extends Component {
   };
   render() {
     if (localStorage.getItem("Users")) {
-      return <Redirect to="/infoUser" />;
+      return <Redirect to="/" />;
     } else {
       return (
         <section className="testimonial py-5 text-light" id="testimonial">

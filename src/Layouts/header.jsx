@@ -185,6 +185,11 @@ export default class Header extends Component {
                               // } else {
                               //   alert("Username does not exist");
                               // }
+                              localStorage.setItem(
+                                "User",
+                                JSON.stringify(res.data)
+                              );
+
                               if (res.data.taiKhoan !== this.state.taiKhoan) {
                                 alert("PPPPPPPPPPPPPPP");
                               }
