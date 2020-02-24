@@ -19,28 +19,28 @@ class InfoMovieDetail extends Component {
     };
   }
   componentDidMount() {}
-  renderRapChieu = () => {
-    let { infoBook } = this.props;
-    return infoBook["heThongRapChieu"].map((item, index) => {
-      return item["cumRapChieu"].map((data, index) => {
-        return <BookItem cumRapChieu={data} key={index} />;
-      });
-    });
-  };
-  renderlichChieuPhim = () => {
-    let { infoBook } = this.props;
-    return infoBook["heThongRapChieu"].map((item, index) => {
-      return item["cumRapChieu"].map((data, index) => {
-        return data["lichChieuPhim"].map((lich, index) => {
-          return (
-            <option>
-              {new Date(lich.ngayChieuGioChieu).toLocaleDateString()}
-            </option>
-          );
-        });
-      });
-    });
-  };
+  // renderRapChieu = () => {
+  //   let { infoBook } = this.props;
+  //   return infoBook["heThongRapChieu"].map((item, index) => {
+  //     return item["cumRapChieu"].map((data, index) => {
+  //       return <BookItem cumRapChieu={data} key={index} />;
+  //     });
+  //   });
+  // };
+  // renderlichChieuPhim = () => {
+  //   let { infoBook } = this.props;
+  //   return infoBook["heThongRapChieu"].map((item, index) => {
+  //     return item["cumRapChieu"].map((data, index) => {
+  //       return data["lichChieuPhim"].map((lich, index) => {
+  //         return (
+  //           <option>
+  //             {new Date(lich.ngayChieuGioChieu).toLocaleDateString()}
+  //           </option>
+  //         );
+  //       });
+  //     });
+  //   });
+  // };
   render() {
     let { detail, infoBook } = this.props;
     console.log(this.props);
@@ -81,7 +81,7 @@ class InfoMovieDetail extends Component {
           </div>
           <div className="container mt-4 align-center " style={{ padding: 0 }}>
             <div className="notification">
-              <div className="row container">{this.renderRapChieu()}</div>
+              {/* <div className="row container">{this.renderRapChieu()}</div> */}
             </div>
           </div>
           <div
