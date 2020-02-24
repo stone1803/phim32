@@ -1,29 +1,48 @@
 import React from "react";
-import Header from "./Layouts/header";
-import Home from "./Screen/Home/Home";
-import Detail from "./Screen/Detail";
-import Notification from "./Layouts/Notification";
-import User from "./User/";
+
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Footer from "./Layouts/Footer";
-import Reg from "./components/Login/Reg";
-import CinemaCluster from "../src/Screen/CinemaCluster";
-import Oder from "../src/components/Oder/Oder";
+
+import HomeTemplate from "./templates/home-template";
+// import AdminTemplate from "./templates/admin-template";
+import { routesHome, routesAdmin } from "./routers";
+// import LoginAdmin from "./Admin/LoginAdmin";
+import Footer from "./Layouts/Footer.jsx"
 // setup redux
+const showMenuHome = routes => {
+  if (routes && routes.length > 0) {
+    return routes.map((item, index) => {
+      return (
+        <HomeTemplate
+          key={index}
+          path={item.path}
+          exact={item.exact}
+          Component={item.component}
+        />
+      );
+    });
+  }
+};
+// const showMenuAdmin = routes => {
+//   if (routes && routes.length > 0) {
+//     return routes.map((item, index) => {
+//       return (
+//         <AdminTemplate
+//           key={index}
+//           path={item.path}
+//           exact={item.exact}
+//           Component={item.component}
+//         />
+//       );
+//     });
+//   }
+// };
 function App() {
   return (
     <BrowserRouter>
-      <Header />
       <Switch>
-        <Route path="/detail/:id" component={Detail} />
-        <Route path="/infoUser/:id" component={User} />
-        <Route path="/Reg" component={Reg} />
-        <Route path="/Oder/:id" component={Oder} />
-
-        <Route path="/Notification" component={Notification} />
-        <Route path="/CinemaCluster/:id" component={CinemaCluster} />
-
-        <Route path="" component={Home} />
+        {showMenuHome(routesHome)}
+        {/* {showMenuAdmin(routesAdmin)} */}
+        {/* <Route path="/admin" component={LoginAdmin} /> */}
       </Switch>
       <Footer />
     </BrowserRouter>

@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Swal from "sweetalert2";
 import { userServes } from "../Action/index";
+import { Redirect } from "react-router-dom";
 
 const SignupSchema = Yup.object().shape({
   taiKhoan: Yup.string().required("Tài khoản không được rỗng"),
@@ -102,6 +103,14 @@ export default class User extends Component {
                           <tr>
                             <td>Số Điện Thoại : {this.state.profile.soDT}</td>
                           </tr>
+                          <button
+                            className="btn btn-info mts-2"
+                            onClick={() => {
+                              localStorage.removeItem("User");
+                            }}
+                          >
+                            Log Out
+                          </button>
                         </tbody>
                       </table>
                     </div>
