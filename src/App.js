@@ -44,7 +44,6 @@ function App() {
         {showMenuAdmin(routesAdmin)}
         <Route path="/admin" component={Admin} />
       </Switch>
-      <Footer />
     </BrowserRouter>
   );
 }

@@ -56,7 +56,7 @@ class CinemaSystem extends Component {
     return (
       <div className="container mt-4">
         <div>
-          <h3 className="text-light text-center"> Hệ Thống Rạp PHIM32.com</h3>
+          <h3 className="text-center"> Hệ Thống Rạp PHIM32.com</h3>
           <Slider {...settings}>
             {this.renderCinemaHTML1()}
           </Slider>

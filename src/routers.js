@@ -5,7 +5,7 @@ import Oder from "./components/Oder/Oder";
 import Detail from "./Screen/Detail/index"
 import Notification from "./Layouts/Notification";
 import CinemaCluster from "./Screen/CinemaCluster";
-import Dashboard from "./Admin/Dashboard"
+import Dashboard from "./Admin/dashboard"
 const routesHome = [
   {
     path: "/",

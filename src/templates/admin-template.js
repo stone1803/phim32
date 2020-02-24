@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { Route, Redirect } from "react-router-dom";
+import Footer from "../Layouts/Footer";
 
 const AdminLayout = props => {
   return (
