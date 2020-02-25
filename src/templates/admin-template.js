@@ -1,11 +1,23 @@
 import React, { Fragment } from "react";
 import { Route, Redirect } from "react-router-dom";
-import Footer from "../Layouts/Footer";
+import Menu from "../Admin/ad-component/Menu";
 
 const AdminLayout = props => {
   return (
     <Fragment>
-      <div>NAVBAR ADMIN</div>
+      <div className="sidebar" data-color="white" data-active-color="danger">
+        <div className="logo">
+          <a href="http://localhost.com:3000" className="simple-text logo-mini">
+            <div className="logo-image-small">
+              <img src="../../assetsc/img/logo.jpg" />
+            </div>
+          </a>
+          <a href="http://localhost:3000" className="simple-text logo-normal">
+            PHIM32.COM
+          </a>
+        </div>
+        <Menu />
+      </div>{" "}
       {props.children}
     </Fragment>
   );

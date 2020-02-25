@@ -6,6 +6,7 @@ import Detail from "./Screen/Detail/index"
 import Notification from "./Layouts/Notification";
 import CinemaCluster from "./Screen/CinemaCluster";
 import Dashboard from "./Admin/dashboard"
+import AddUser from "./Admin/adminUser"
 const routesHome = [
   {
     path: "/",
@@ -49,6 +50,11 @@ const routesAdmin = [
     path: "/dashboard",
     exact: false,
     component: Dashboard
+  },
+  {
+    path:"/add-user",
+    exact:false,
+    component:AddUser
   }
 ];
-export { routesHome,routesAdmin };
+export { routesHome,routesAdmin};

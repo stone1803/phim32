@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class Menu extends Component {
     render() {
@@ -6,34 +7,34 @@ export default class Menu extends Component {
             <div className="sidebar-wrapper">
             <ul className="nav">
               <li className="active ">
-                <a href="./dashboard.html">
+                <Link to="/dashboard">
                   <i className="nc-icon nc-bank" />
                   <p>Dashboard</p>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="./icons.html">
+                <Link to="/add-user">
                   <i className="nc-icon nc-diamond" />
-                  <p>Icons</p>
-                </a>
+                  <p>Quản Lý Thành Viên</p>
+                </Link>
               </li>
               <li>
-                <a href="./map.html">
+                <Link to="/fiml">
                   <i className="nc-icon nc-pin-3" />
-                  <p>Maps</p>
-                </a>
+                  <p>Quản Lý Phim</p>
+                </Link>
               </li>
               <li>
-                <a href="./notifications.html">
+                <Link to="/ticket">
                   <i className="nc-icon nc-bell-55" />
-                  <p>Notifications</p>
-                </a>
+                  <p>Quản Lý Phòng Vé</p>
+                </Link>
               </li>
               <li>
-                <a href="./user.html">
+                <Link to="/">
                   <i className="nc-icon nc-single-02" />
                   <p>User Profile</p>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
