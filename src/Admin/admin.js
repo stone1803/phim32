@@ -25,7 +25,7 @@ class Admin extends Component {
 
   render() {
     return (      
-<div className="container text-light">
+<div className="container text-light" style={{height:"1000px"}}>
   <div className="row">
     <div className="col-lg-3 col-md-2" />
     <div className="col-lg-6 col-md-8 login-box">

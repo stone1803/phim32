@@ -19,7 +19,6 @@ export const actLogin = (user, history) => {
       data: user
     })
       .then(result => {
-        console.log(result.data);
         if (result.data.maLoaiNguoiDung === "QuanTri") {
           localStorage.setItem("UserAdmin", JSON.stringify(result.data));
           alert("Login success");

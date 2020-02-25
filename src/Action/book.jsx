@@ -7,7 +7,7 @@ export const actGetInfoFimlBook = id => {
       url: `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${id}`
     }).then(res => {
       console.log(res.data);
-      dispatch(createAction("GET_INFO_BOOK"));
+      dispatch(createAction("GET_INFO_BOOK",res.data));
     });
   };
 };
@@ -18,7 +18,7 @@ export const actGetBookOder = id => {
       url: `http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${id}`
     }).then(res => {
       console.log(res.data);
-      dispatch(createAction("GET_BOOK_ODER"));
+      dispatch(createAction("GET_BOOK_ODER",res.data));
     });
   };
 };

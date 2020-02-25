@@ -98,16 +98,6 @@ export default class Header extends Component {
                           className="text-light"
                         >
                           <div>
-                            {/* <Gravatar
-                              email=""
-                              style={{
-                                width: "68px",
-                                height: "68px",
-                                borderRadius:"50%",
-                                marginRight:"20px"
-                              
-                              }}
-                            /> */}
                             👳 {this.state.loginTaiKhoan}
                           </div>
                         </Link>
@@ -118,7 +108,6 @@ export default class Header extends Component {
               </div>
             </div>
           </nav>
-          {/* login modal */}
           <div
             className="modal fade"
             id="loginModal"
@@ -176,13 +165,6 @@ export default class Header extends Component {
                             }
                           )
                             .then(res => {
-                              // console.log(res);
-                              // if (res.data.taiKhoan === this.state.taiKhoan) {
-                              //   console.log(res.data);
-
-                              // } else {
-                              //   alert("Username does not exist");
-                              // }
                               localStorage.setItem(
                                 "User",
                                 JSON.stringify(res.data)
@@ -226,7 +208,6 @@ export default class Header extends Component {
               </div>
             </div>
           </div>
-          {/* login modal */}
         </div>
       </>
     );

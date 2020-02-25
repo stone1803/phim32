@@ -22,7 +22,7 @@ export default class SaleOff extends Component {
             <div className="row">
               <div className="col-md-3">
                 <a href="#">
-                  <img src="./img/khuyenmai1.jp" alt="Image" style={{maxWidth: '80%'}} />
+                  <img src="./img/khuyenmai.jp" alt="Image" style={{maxWidth: '80%'}} />
                 </a>
               </div>
               <div className="col-md-3">
@@ -41,9 +41,7 @@ export default class SaleOff extends Component {
                 </a>
               </div>
             </div>
-            {/*.row*/}
           </div>
-          {/*.item*/}
           <div className="carousel-item mt-4">
             <div className="row">
               <div className="col-md-3">
