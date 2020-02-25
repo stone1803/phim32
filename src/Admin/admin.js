@@ -25,15 +25,14 @@ class Admin extends Component {
 
   render() {
     return (      
-<div className="container">
+<div className="container text-light">
   <div className="row">
     <div className="col-lg-3 col-md-2" />
     <div className="col-lg-6 col-md-8 login-box">
       <div className="col-lg-12 login-key">
-        <i className="fa fa-key" aria-hidden="true" />
       </div>
-      <div className="col-lg-12 login-title">
-        ADMIN PANEL
+      <div className="col-lg-12 login-title text-center mt-4">
+        ADMIN LOGIN
       </div>
       <div className="col-lg-12 login-form">
         <div className="col-lg-12 login-form">

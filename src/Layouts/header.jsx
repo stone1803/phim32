@@ -87,9 +87,7 @@ export default class Header extends Component {
                       data-toggle="modal"
                       data-target={this.state.target}
                     >
-                      {this.state.taiKhoan === null
-                        ? "ĐĂNG NHẬP"
-                        : "Đăng Nhập" + this.state.taiKhoan}
+                      {this.state.taiKhoan === null ? "ĐĂNG NHẬP" : "Đăng Nhập"}
                     </a>
                     <div>
                       {this.state.loginTaiKhoan === null ? (
@@ -111,7 +109,6 @@ export default class Header extends Component {
                               }}
                             /> */}
                             👳 {this.state.loginTaiKhoan}
-                           
                           </div>
                         </Link>
                       )}

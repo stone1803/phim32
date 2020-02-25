@@ -8,7 +8,7 @@ const HomeLayout = props => {
               <Header />
 
       {props.children}
-      <Footer />
+      <Footer/>
 
     </Fragment>
   );
