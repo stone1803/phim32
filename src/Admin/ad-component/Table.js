@@ -11,7 +11,7 @@ import TableRow from "@material-ui/core/TableRow";
 import { connect, useSelector } from "react-redux";
 import Button from "@material-ui/core/Button";
 import ModalAddUser from "./modal-add-user";
-
+import {TableItem} from "./TableItem"
 const columns = [
   { id: "Tài Khoản", label: "Tài Khoản", minWidth: 100 },
   { id: "Mật Khẩu", label: "Mật Khẩu", minWidth: 100 },
@@ -30,13 +30,12 @@ const useStyles = makeStyles({
   }
 });
 
-function Tables() {
-  const allUser = useSelector(state => state.listAdminReducer.allUser);
-  console.log(allUser);
+function Tables({allUser}) {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
+  
+  
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -45,60 +44,52 @@ function Tables() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-
+  const deleteHandle = (data) => {
+      console.log(data)
+};
   return (
     <div>
-
-    <Paper className={classes.root}>
-      <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map(column => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {allUser.map(row => (
-              <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
-                  {row.taiKhoan}
-                </TableCell>
-                <TableCell align="right">{row.matKhau}</TableCell>
-                <TableCell align="right">{row.email}</TableCell>
-                <TableCell align="right">{row.hoTen}</TableCell>
-                <TableCell align="right">
-                  <Button variant="contained" color="secondary">
-                    SỬA
-                  </Button>
-                </TableCell>
+      <Paper className={classes.root}>
+        <TableContainer className={classes.container}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                {columns.map(column => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth }}
+                  >
+                    {column.label}
+                  </TableCell>
+                ))}
               </TableRow>
-            ))}
-          </TableBody>{" "}
-        </Table>
-      </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={allUser.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onChangePage={handleChangePage}
-        onChangeRowsPerPage={handleChangeRowsPerPage}
-      />
-    </Paper>
-    <div className="mt-4 ml-3">
-    <ModalAddUser/>
-                  </div>
+            </TableHead>
+            <TableBody>
+              {allUser.map(row => (
+                <TableItem row={row} clickUser={deleteHandle()}/>
+              ))}
+            </TableBody>{" "}
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[10, 25, 100]}
+          component="div"
+          count={allUser.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onChangePage={handleChangePage}
+          onChangeRowsPerPage={handleChangeRowsPerPage}
+        />
+      </Paper>
+      <div className="mt-4 ml-3">
+        <ModalAddUser />
+      </div>
     </div>
   );
 }
-
-export default connect()(Tables);
+const mapStateToProps = state => ({
+    allUser: state.listAdminReducer.allUser
+   
+  });
+export default connect(mapStateToProps)(Tables);
