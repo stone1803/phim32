@@ -17,6 +17,10 @@ const listAdminReducer = (state = ListAdmin, action) => {
       state.allCinema = action.payload;
       return { ...state };
     }
+    case 'ADD_USER':
+        state.allUser = [...state.allUser,action.nguoiDung]
+        return { ...state }
+    
     default:
       return state;
       break;

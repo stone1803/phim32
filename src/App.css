@@ -1,7 +1,9 @@
-body, html {
+.body{
   margin: 0;
-}
+  overflow-y: hidden;
 
+
+}
 .App {
   text-align: center;
 }

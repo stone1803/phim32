@@ -42,4 +42,28 @@ export const actGetAllCinema = ()=>{
       })
   }
 }
+export const addUserAction = nguoiDung => {
+    //Lấy token từ localstorage
+    let userLogin = JSON.parse(localStorage.getItem("UserAdmin"));
+  
+    return dispatch => {
+        Axios({
+        url:
+          "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung",
+        method: "POST",
+        data: nguoiDung,
+        headers: { Authorization: "Bearer " + userLogin.accessToken }
+      })
+        .then(result => {
+          console.log(result.data);
+          //reload gọi lại api layDanhSachNguoiDung
+          //Đưa dữ liệu thêm thành công lên reducer
+        //   dispatch(createAction("ADD_USER",nguoiDung:result.data))
 
+         dispatch({ type: "ADD_USER", nguoiDung: result.data });
+        })
+        .catch(error => {
+          console.log(error.response.data);
+        });
+    };
+  };

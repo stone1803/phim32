@@ -17,7 +17,7 @@ const AdminLayout = props => {
           </a>
         </div>
         <Menu />
-      </div>{" "}
+      </div>
       {props.children}
     </Fragment>
   );
