@@ -36,7 +36,7 @@
     "react-really-easy-charts": "^1.0.5",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0",
+    "react-scripts": "5.0.1",
     "react-slick": "^0.25.2",
     "react-spinners": "^0.8.0",
     "redux": "^4.0.5",
